@@ -1,5 +1,10 @@
 import processing.core.PApplet;
 
+/**
+ * This program draws an interactive grid
+ * @author Garv Choudhry
+ */
+
 public class Sketch extends PApplet {
 	
   /**
