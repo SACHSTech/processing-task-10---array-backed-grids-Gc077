@@ -7,6 +7,27 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
 	
+  // Declare global variables 
+  int CELL_WIDTH = 20;
+  int CELL_HEIGHT = 20;
+  int MARGIN = 5;
+  int ROW_COUNT = 10;
+  int COLUMN_COUNT = 10;
+  int SCREEN_WIDTH = (CELL_WIDTH + MARGIN) * COLUMN_COUNT + MARGIN;
+  int SCREEN_HEIGHT = (CELL_HEIGHT + MARGIN) * ROW_COUNT + MARGIN;
+  int intMouseXGrid;
+  int intMouseYGrid;
+
+  boolean IsGridPressed = false;
+  boolean IsGridPrint = false;
+
+  int intSelectCount;
+  int intRowSelectCount;
+  int intColumnSelectCount;
+  int intContinousGrid;
+
+  boolean restart;
+
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
