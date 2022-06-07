@@ -28,12 +28,15 @@ public class Sketch extends PApplet {
 
   boolean restart;
 
+  // Array 
+  int[][] intGrid = new int[ROW_COUNT][COLUMN_COUNT];
+
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
   public void settings() {
     // put your size call here
-    size(500, 600);
+    size(SCREEN_WIDTH, SCREEN_HEIGHT);
   }
 
   /** 
@@ -41,16 +44,50 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    background(255,255,255);
+    background(0);
   }
 
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  
+	  GridDraw();
+    GridDetails();
   }
 
+  /**
+   * 
+   * Draws the grid and calculates values within the intGrid Integer Array.
+   */
+  public void GridDraw(){
+    for (int intColumn = 0 < COLUMN_COUNT; intColumn++){
+      for (int intRow = 0; intRow < ROW_COUNT; intRow++){
+        if(IsGridPressed && intMouseXGrid == intColumn && intMouseYGrid == intRow){
+          // Center Block
+          if (intGrid[intRow][intColumn] == 0){
+            intGrid[intRow][intColumn] = 1;
+            intSelectCount++;
+          }
+          else if (intGrid[intRow][intColumn] == 1){
+            intGrid[intRow][intColumn] = 0;
+            intSelectCount --;
+          }
+
+          // Left Block
+          if (intColumn > 0 && intGrid[intRow][intColumn - 1] == 0){
+            intGrid[intRow][intColumn - 1] = 1;
+            intSelectCount ++;
+          }
+          else if (intColumn > 0 && intGrid[intRow][intColumn-1] == 1){
+            intGrid[intRow][intColumn-1] = 0;
+            intSelectCount --;
+          }
+
+          // Right Block
+        }
+      }
+    }
+  }
   public void mousePressed(){
     
   }
